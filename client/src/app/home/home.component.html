@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div *ngIf="!registerMode && !loginMode" style='text-align: center;'>
-        <h1>Zaloguj się z JWT</h1>
-        <p class="lead">Twoje logowanie jest bezpieczne dzięki algorytmowi JWT</p>
+        <h1>Zaloguj się bez JWT</h1>
+        <p class="lead">Twoje logowanie nie jest bezpieczne, nie zaimplementowano JWT</p>
         <div class="text-center">
             <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Rejestracja</button>
             <button (click)="loginToggle()" class="btn btn-success btn-lg mr-2">Logowanie</button>
