@@ -1,0 +1,27 @@
+<div class="container mt-5">
+    <div *ngIf="!registerMode && !loginMode" style='text-align: center;'>
+        <h1>Zaloguj się z JWT</h1>
+        <p class="lead">Twoje logowanie jest bezpieczne dzięki algorytmowi JWT</p>
+        <div class="text-center">
+            <button (click)="registerToggle()" class="btn btn-primary btn-lg mr-2">Rejestracja</button>
+            <button (click)="loginToggle()" class="btn btn-success btn-lg mr-2">Logowanie</button>
+        </div>
+    </div>
+
+    <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="loginMode" class="container">
+        <div class="row justify-content-center">
+            <div class="col-4">
+                <app-login (cancelLogin)="cancelLoginMode($event)"></app-login>
+            </div>
+        </div>
+    </div>
+    
+</div>

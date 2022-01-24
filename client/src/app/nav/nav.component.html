@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container">
+            <a class="navbar-brand" href="#">Login App</a>
+              <ul class="navbar-nav mr-auto" *ngIf="accountService.currentUser$ | async">
+                <li class="nav-item">
+              </ul>
+
+              <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+                  <a class="dropdown-toggle text-light" dropdownToggle>Witaj {{user.username | titlecase}}!</a>
+                  <div class="dropdown-menu mt-3" *dropdownMenu>
+                    <a class="dropdown-item" (click)="logout()">Wyloguj</a>
+                  </div>
+              </div>
+
+    </div>
+  </nav>
