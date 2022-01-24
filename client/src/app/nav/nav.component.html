@@ -5,27 +5,12 @@
                 <li class="nav-item">
               </ul>
 
-              <div class="dropdown" *ngIf="accountService.currentUser$ | async" dropdown>
-                  <a class="dropdown-toggle text-light" dropdownToggle>Witaj zalogowany!</a>
+              <div class="dropdown" *ngIf="(accountService.currentUser$ | async) as user" dropdown>
+                  <a class="dropdown-toggle text-light" dropdownToggle>Witaj {{user.username | titlecase}}!</a>
                   <div class="dropdown-menu mt-3" *dropdownMenu>
                     <a class="dropdown-item" (click)="logout()">Wyloguj</a>
                   </div>
               </div>
 
-              <form *ngIf="(accountService.currentUser$ | async) === null" #loginForm="ngForm" class="form-inline mt-2 mt-md-0" (ngSubmit)="login()" autocomplete="off">
-                  <input 
-                      name="username"
-                      [(ngModel)]="model.username"
-                      class="form-control mr-sm-2" 
-                      type="text" 
-                      placeholder="Login">
-                  <input 
-                      name="password"
-                      [(ngModel)]="model.password"
-                      class="form-control mr-sm-2" 
-                      type="password" 
-                      placeholder="Hasło">
-                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Login</button>
-              </form>
     </div>
   </nav>
